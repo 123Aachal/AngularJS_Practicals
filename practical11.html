@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-controller="MainCtrl">
+
+<h2>Factorial & Square</h2>
+<div>
+  Enter Number: <input type="number" ng-model="n" min="0"><br><br>
+  <p>Factorial: {{ fact }}</p>
+  <p>Square: {{ n*n }}</p>
+</div>
+
+<script>
+  angular.module('myApp', [])
+    .controller('MainCtrl', ['$scope', function($scope) {
+      $scope.n = 0;
+      $scope.fact = 1;
+
+      $scope.$watch('n', function(value) {
+        value = parseInt(value) || 0; 
+        let f = 1;
+        for (let i = 1; i <= value; i++) f *= i;
+        $scope.fact = f;
+      });
+    }]);
+</script>
+
+</body>
+</html>

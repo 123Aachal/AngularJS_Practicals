@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-init="students=[
+  {name:'Rahul', age:22},
+  {name:'Amit', age:25},
+  {name:'Sneha', age:21},
+  {name:'Kiran', age:23}
+]">
+
+<h3>Ascending Order by Name</h3>
+<ul>
+  <li ng-repeat="s in students | orderBy:'name'">{{s.name}} - {{s.age}}</li>
+</ul>
+
+<h3>Descending Order by Age</h3>
+<ul>
+  <li ng-repeat="s in students | orderBy:'age':true">{{s.name}} - {{s.age}}</li>
+</ul>
+
+</body>
+</html>

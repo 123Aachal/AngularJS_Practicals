@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
+
+<h2>Calculator</h2>
+<div ng-init="a=0; b=0; result=0">
+  <input type="number" ng-model="a" placeholder="a">
+  <input type="number" ng-model="b" placeholder="b"><br><br>
+  <button ng-click="result=a+b">+</button>
+  <button ng-click="result=a-b">-</button>
+  <button ng-click="result=a*b">*</button>
+  <button ng-click="result=b!=0?a/b:'Division by zero'">/</button>
+  <p>Result: {{result}}</p>
+</div>
+
+</body>
+</html>

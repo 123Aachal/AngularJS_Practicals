@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+<p id="text">Hello! Slide me!</p>
+<button id="up">Slide Up</button>
+<button id="down">Slide Down</button>
+<button id="toggle">Slide Toggle</button>
+
+<script>
+$("#up").click(()=>$("#text").slideUp());
+$("#down").click(()=>$("#text").slideDown());
+$("#toggle").click(()=>$("#text").slideToggle());
+</script>
+
+</body>
+</html>

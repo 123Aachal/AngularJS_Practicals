@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Short Dynamic Website</title>
+<style>
+  body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f5f5f5; }
+  header { background: #bf6934; color: white; padding: 15px; text-align: center; }
+  nav { background: #333; padding: 10px; text-align: center; }
+  nav a { color: white; margin: 0 10px; text-decoration: none; }
+  nav a:hover { text-decoration: underline; }
+  main { padding: 20px; text-align: center; }
+  button { padding: 10px 20px; margin-top: 10px; cursor: pointer; }
+  #dynamicText { color: #4CAF50; font-weight: bold; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>My Short Dynamic Website</h1>
+</header>
+
+<nav>
+  <a href="#home" onclick="showSection('home')">Home</a>
+  <a href="#about" onclick="showSection('about')">About</a>
+  <a href="#contact" onclick="showSection('contact')">Contact</a>
+</nav>
+
+<main>
+  <section id="home">
+    <h2>Welcome to the Home Page</h2>
+    <p>This is a short dynamic website built with HTML, CSS, and JavaScript.</p>
+    <button onclick="changeText()">Click Me!</button>
+    <p id="dynamicText">Hello World!</p>
+  </section>
+
+  <section id="about" style="display:none">
+    <h2>About Us</h2>
+    <p>We create simple, dynamic websites using modern web technologies.</p>
+  </section>
+
+  <section id="contact" style="display:none">
+    <h2>Contact Us</h2>
+    <p>Email: contact@example.com</p>
+    <p>Phone: +1234567890</p>
+  </section>
+</main>
+
+<script>
+  function changeText() {
+    const text = document.getElementById("dynamicText");
+    text.innerText = text.innerText === "Hello World!" ? "You clicked the button!" : "Hello World!";
+  }
+
+  function showSection(sectionId) {
+    const sections = document.querySelectorAll("main section");
+    sections.forEach(sec => sec.style.display = "none");
+    document.getElementById(sectionId).style.display = "block";
+  }
+</script>
+
+</body>
+</html>

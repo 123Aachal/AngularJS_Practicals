@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-init="logged=false">
+
+<h2>Login Form</h2>
+<form name="loginForm" novalidate ng-submit="logged=true">
+  Username: 
+  <input type="text" ng-model="username" name="username" required minlength="3"><br>
+  <span ng-show="loginForm.username.$touched && loginForm.username.$invalid">Invalid Username</span><br><br>
+
+  Password: 
+  <input type="password" ng-model="password" name="password" required minlength="6"><br>
+  <span ng-show="loginForm.password.$touched && loginForm.password.$invalid">Invalid Password</span><br><br>
+
+  <button type="submit" ng-disabled="loginForm.$invalid">Login</button>
+</form>
+
+<p ng-if="logged">Logged in successfully!</p>
+
+</body>
+</html>

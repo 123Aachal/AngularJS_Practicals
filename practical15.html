@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+  <meta charset="UTF-8">
+  <title>Employee Search</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-controller="MainCtrl" ng-init="
+  employees=[
+    {name:'John',salary:50000},
+    {name:'Jane',salary:60000},
+    {name:'Sam',salary:45000}
+  ];
+  search='';
+  minSalary=0;
+">
+
+  <h2>Employees</h2>
+
+  <label>
+    Search by Name:
+    <input ng-model="search" placeholder="Enter name">
+  </label>
+  <br><br>
+
+  <label>
+    Minimum Salary:
+    <input type="number" ng-model="minSalary">
+  </label>
+  <br><br>
+
+  <ul>
+    <li ng-repeat="e in employees | filter:{name:search} | salaryFilter:minSalary">
+      {{e.name}} — ₹{{e.salary}}
+    </li>
+  </ul>
+
+  <script>
+    // Define the app and custom filter
+    angular.module('app', [])
+      .controller('MainCtrl', function($scope) {
+        // You can move employees & variables here if you prefer
+      })
+      .filter('salaryFilter', function() {
+        return function(items, minSalary) {
+          if (!items) return [];
+          return items.filter(function(e) {
+            return e.salary >= (minSalary || 0);
+          });
+        };
+      });
+  </script>
+
+</body>
+</html>

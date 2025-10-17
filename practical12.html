@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="studentApp">
+<body ng-controller="C as ctrl">
+
+<h2>Student Details</h2>
+Number: <input type="number" ng-model="ctrl.n" ng-change="ctrl.gen()">
+<p>Total Students: {{ ctrl.students.length }}</p>
+
+<table border="1" ng-if="ctrl.students.length">
+<tr><th>Roll</th><th>Name</th><th>CGPA</th></tr>
+<tr ng-repeat="s in ctrl.students">
+  <td>{{s.roll}}</td><td>{{s.name}}</td><td>{{s.cgpa}}</td>
+</tr>
+</table>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+<script>
+angular.module('studentApp', []).controller('C',function(){
+  this.students=[];
+  this.gen=()=>{
+    this.students=[];
+    for(let i=1;i<=this.n;i++) this.students.push({roll:i,name:'Student '+i,cgpa:(Math.random()*4).toFixed(2)});
+  }
+});
+</script>
+</body>
+</html>

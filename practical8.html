@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
+
+<h2>Simple Form</h2>
+
+<form ng-init="user={}">
+  Name: <input type="text" ng-model="user.name"><br><br>
+  Email: <input type="email" ng-model="user.email"><br><br>
+  <button type="submit">Submit</button>
+</form>
+
+<h3>Entered Data:</h3>
+<p>Name: {{user.name}}</p>
+<p>Email: {{user.email}}</p>
+
+</body>
+</html>

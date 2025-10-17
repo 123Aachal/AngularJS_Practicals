@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-init="today = new Date()">
+
+<h3>Current Date in Different Formats</h3>
+
+<p>1. Default: {{today | date}}</p>
+<p>2. Short: {{today | date:'short'}}</p>
+<p>3. Medium: {{today | date:'medium'}}</p>
+<p>4. Full Date: {{today | date:'fullDate'}}</p>
+<p>5. Long Date: {{today | date:'longDate'}}</p>
+<p>6. Short Date: {{today | date:'shortDate'}}</p>
+<p>7. Medium Date: {{today | date:'mediumDate'}}</p>
+<p>8. Short Time: {{today | date:'shortTime'}}</p>
+<p>9. Medium Time: {{today | date:'mediumTime'}}</p>
+<p>10. Custom (dd/MM/yyyy HH:mm:ss): {{today | date:'dd/MM/yyyy HH:mm:ss'}}</p>
+
+</body>
+</html>
